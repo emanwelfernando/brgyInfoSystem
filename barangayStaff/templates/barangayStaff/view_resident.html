@@ -1,0 +1,55 @@
+{% extends 'barangayStaff/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static '/css/main.css' %}" >
+<link rel="stylesheet" href="{% static '/css/dashboard.css' %}" >
+<div class="d-flex" id="wrapper">
+    {% include 'barangayStaff/sidebar.html' %} 
+    
+        <div class="container-fluid" id="bmargin">
+            <div class="row">
+                <div class="col-md-12">
+                <br>
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div class="card card-body">
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="title">Resident Information</div>
+                            </div>    
+                        </div> 
+                            <hr>
+                            <br>                        
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <th scope='row'>Name</th>
+                                        <td>{{ viewResidents.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope='row'>Address</th>
+                                        <td>{{ viewResidents.address }}</td>
+                                    </tr>
+                                        <th scope='row'>Age</th>
+                                        <td>{{ viewResidents.age }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope='row'>Phone Number</th>
+                                        <td>{{ viewResidents.phone_number }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope='row'>Gender</th>
+                                        <td>{{ viewResidents.gender }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope='row'>Status</th>
+                                        <td>{{ viewResidents.status }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+        <title>A</title>
+    </head>
+    <body>
+        {% block content %}
+        
+        {% endblock %}
+        {% comment %} {% include 'barangayStaff/footer.html' %} {% endcomment %}
+    </body>
+    <script>
+        var el = document.getElementById("wrapper");
+        var toggleButton = document.getElementById(“menu-toggle");
+        toggleButton.onclick = function () {
+            el.classList. toggle("toggled");
+        };
+        </script>
+        <script>
+            let btn = document.querySelector("#btn”);
+            let sidebar = document.querySelector(".sidebar”);
+            btn.onclick = function(){
+                sidebar.classList.toggle( “active”);
+        }
+        </script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>

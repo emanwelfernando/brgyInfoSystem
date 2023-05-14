@@ -1,0 +1,76 @@
+{% extends 'barangayStaff/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static '/css/main.css' %}" >
+<link rel="stylesheet" href="{% static '/css/dashboard.css' %}" >
+<div class="d-flex" id="wrapper">
+    {% include 'barangayStaff/sidebar.html' %} 
+    
+        <div class="container-fluid" id="bmargin">
+            <div class="row">
+                <div class="col-md-12">
+                <br>
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div class="card card-body">
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="title">List of Residents</div>
+                            </div>
+                        </div>
+                        <br>
+                        <form method="get">
+                            {{ residentFilter.form }}
+                            <button class="btn btn-success btn-sm btn-block">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                  </svg> 
+                            </button>
+                        </form>
+                        <hr>
+                        <br>
+                        <div>
+                        <a class="btn btn-success btn-sm btn-block" title="Add Resident" id="mainfront" href="{% url 'create_resident' %}">Add Resident</a>
+                        </div>
+                            <br>
+                            <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Phone Number</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                  </tr>
+                                </thead>
+                                {% for i in residents %}
+                                    <tr> 
+                                        <td><a class="btn btn-success btn-sm btn-block" title="View" id="mainfront" href="{% url 'view_resident' i.id %}"><i>View<i></a></td>
+                                        <td>{{i.name}}</td>
+                                        <td>{{i.address}}</td>
+                                        <td>{{i.age}}</td>
+                                        <td>{{i.phone_number}}</td>
+                                        <td>{{i.gender}}</td>
+                                        <td>{{i.status}}</td>
+                                        <td>
+                                            <a class="btn btn-success btn-sm btn-block" title="Edit" id="mainfront" href="{% url 'update_resident' i.id %}">
+                                                <i>Edit<i>
+                                            </a>
+                                            <a class="btn btn-success btn-sm btn-block" title="Delete" id="mainfront" href="{% url 'delete_resident' i.id %}">
+                                                <i>Delete</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                          
+</div>    
+
+{% endblock %}
