@@ -1,22 +1,31 @@
 from django.db import models
-
+from django import forms
+from datetime import datetime, date
 
 GENDER = (
-    ('male', 'male'),
-    ('female', 'female'),
-    ('undecided', 'undecided'),
+    ('Male', 'Male'),
+    ('Female', 'Female'),
+    ('Undecided', 'Undecided'),
 )
 STATUS = (
-    ('single', 'single'),
-    ('married', 'married'),
+    ('Single', 'Single'),
+    ('Married', 'Married'),
+    ('Divorced', 'Divorced'),
+    ('Widowed', 'Widowed'),
+)
+VACCINATION = (
+    ('Vaccinated', 'Vaccinated'),
+    ('Not Vaccinated', 'Not Vaccinated'),
 )
 
 class Resident(models.Model):
     name = models.CharField(max_length=50, null=True)
-    address = models.CharField(max_length=50, null=True)
-    age = models.IntegerField(max_length=50, null=True)
+    address = models.CharField(max_length=50, null=True)        
+    birth_date = models.DateField(null=True)
+    age = models.IntegerField(null=True)
     phone_number = models.CharField(max_length=50, null=True)
     gender = models.CharField(max_length=50, null=True, choices=GENDER)
+    vaccination = models.CharField(max_length=50, null=True, choices=VACCINATION)
     status = models.CharField(max_length=50, null=True, choices=STATUS)
 
     def __str__(self):
@@ -26,6 +35,7 @@ class Household(models.Model):
     name = models.CharField(max_length=50, null=True)
     householdSize = models.IntegerField(null=True)
     houseHoldHead = models.ForeignKey(Resident, null=True, on_delete=models.SET_NULL)
+   
 
     def __str__(self):
         return self.name

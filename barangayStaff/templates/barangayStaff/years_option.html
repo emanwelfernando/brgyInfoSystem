@@ -1,0 +1,5 @@
+{% for year in years %}
+  {% if year >= current_year - 100 and year <= current_year %}
+    <option value="{{ year }}">{{ year }}</option>
+  {% endif %}
+{% endfor %}

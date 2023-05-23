@@ -1,0 +1,25 @@
+{% extends 'barangayStaff/add_resident.html' %}
+
+{% block modal-id %} id="editResident{{ i.id }}" {% endblock modal-id %}
+
+{% block modal-title %}Edit Resident{% endblock modal-title %}
+
+{% block action %} action="/edit_resident/{{ i.id }}/" {% endblock action %}
+
+{% block btn-action %}Save Changes{% endblock btn-action %}
+
+{% block Value-name %} value="{{ i.name }}" {% endblock Value-name %}
+
+{% block Value-address %} value="{{ i.address }}" {% endblock Value-address %}
+
+{% block Value-birth_date %} value="{{ i.birth_date }}" {% endblock Value-birth_date %}
+
+{% block Value-age %} value="{{ i.age }}" {% endblock Value-age %}
+
+{% block Value-phone_number %} value="{{ i.phone_number }}" {% endblock Value-phone_number %}>
+
+{% block gender_option %} value="{{ i.gender }}" {% endblock gender_option %}
+
+{% block vaccination_option %} value="{{ i.vaccination }}" {% endblock vaccination_option %}
+
+{% block status_option %} value="{{ i.status }}" {% endblock status_option %}

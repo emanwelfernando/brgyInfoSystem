@@ -5,4 +5,4 @@ class ResidentFilters(django_filters.FilterSet):
     class Meta:
         name = django_filters.CharFilter(label='Full Name')
         model = Resident
-        fields = ['name', 'age']
+        fields = ['name', 'age', 'status']

@@ -1,5 +1,6 @@
 from django.urls import path
-from . import views
+from django.contrib import admin
+from barangayStaff import views
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
@@ -9,8 +10,8 @@ urlpatterns = [
     path('resident/', views.resident, name='resident'),
     path('settings/', views.settings),
     path('logout/', views.logout),
-    path('create_resident/', views.createResident, name='create_resident'),
+    path('add_resident', views.add_resident, name='add_resident'),
     path('view_resident/<str:pk>/', views.view_resident, name='view_resident'),
-    path('update_resident/<str:pk>/', views.updateResident, name='update_resident'),
-    path('delete_resident/<str:pk>/', views.deleteResident, name='delete_resident'),
+    path('edit_resident/<str:pk>/', views.edit_resident, name='edit_resident'),
+    path('delete_resident/<str:pk>/', views.delete_resident, name='delete_resident'),
 ]

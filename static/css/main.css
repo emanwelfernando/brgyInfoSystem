@@ -1,3 +1,4 @@
+
 btn-success{
   background-color: aqua;
 }
@@ -8,11 +9,11 @@ body {
      background-color: #d9b8b8;
 }
 thead{
-     background-color: rgb(171, 239, 201);
+     background-color: #abefc9;
 }
 .navbar_li{
      text-align: center;
-     margin-left: 40px;
+     margin-left: 40px; 
      font-size: 14px;
 }
 .dropdown-menu{
@@ -24,8 +25,11 @@ thead{
      font-weight: bolder;
      font-size: 24px;
 }
-.
+
 #mainfront{
      font-size: 14px;
      text-align: center;
 }
+ #page-content-wrapper{
+     width: 80%;
+ }

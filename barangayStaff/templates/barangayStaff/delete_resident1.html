@@ -1,0 +1,83 @@
+<!-- Modal -->
+<div class="modal fade" {% block modal-id %} id="deleteResident" {% endblock modal-id %} tabindex="-1" aria-labelledby="addResidentLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addResidentLabel">{% block modal-title %}Add Resident{% endblock modal-title %}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form {% block action %} action="/add_resident" {% endblock action %} method="POST" autocomplete="on">
+        {% csrf_token %}
+        <div class="modal-body">
+          
+          {% block  Value-id %}{% endblock Value-id %}
+
+              <div class="input-group mb-3">
+                <span class="btn border-secondary bg-light"><i class="fas fa-user-alt"></i></span>
+                <input type="text" class"form-control" name="name" maxlength="50" placeholder="Full Name" required> 
+              </div>
+              <div class="input-group mb-3">
+                <span class="btn border-secondary bg-light"><i class="fas fa-user-alt"></i></span>
+                <input type="text" class"form-control" name="address" maxlength="50" placeholder="Address" required> 
+              </div>
+              <div class="input-group mb-3">
+                <span class="btn border-secondary bg-light"><i class="fas fa-user-alt"></i></span>
+                <input type="select" class"form-control" name="birth_date" maxlength="50" placeholder="Birth Date" required> 
+              </div>
+              <div class="input-group mb-3">
+                <span class="btn border-secondary bg-light"><i class="fas fa-user-alt"></i></span>
+                <input type="number" class"form-control" name="age" maxlength="50" placeholder="Age" required> 
+              </div>
+              <div class="input-group mb-3">
+                <span class="btn border-secondary bg-light"><i class="fas fa-user-alt"></i></span>
+                <input type="number" class"form-control" name="phone_number" maxlength="50" placeholder="Phone Number" required> 
+              </div>
+              <div class="form-row field-gender ">
+                  <div>
+                      <div class="flex-container">
+                          <label><span class="btn border-secondary bg-light required" for="id_gender"  placeholder="Phone Number"><i class="fas fa-user-alt"></i></span></label>
+                                  <select name="gender" required="" id="id_gender">
+                                  <option value="">---------</option>
+                                  <option value="Male">Male</option>
+                                  <option value="Female">Female</option>
+                                  <option value="Undecided">Undecided</option>
+                              </select>
+                      </div>
+                  </div>   
+              </div>
+              <div class="form-row field-vaccination">
+                  <div>
+                      <div class="flex-container">
+                        <label><span class="btn border-secondary bg-light required" for="id_vaccination"><i class="fas fa-user-alt"></i></span></label>
+                                  <select name="vaccination" required="" id="id_vaccination">
+                                  <option value="">---------</option>                              
+                                  <option value="Vaccinated">Vaccinated</option>
+                                  <option value="Not Vaccinated">Not Vaccinated</option>
+                              </select>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-row field-status">
+                  <div>
+                      <div class="flex-container">
+                        <label><span class="btn border-secondary bg-light required" for="id_status"><i class="fas fa-user-alt"></i></span></label>
+                              <select name="status" required="" id="id_status">
+                                  <option value="">---------</option>
+                                  <option value="Single">Single</option>
+                                  <option value="Married">Married</option>
+                                  <option value="Divorced">Divorced</option>
+                                  <option value="Widowed">Widowed</option>
+                              </select>      
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success" value="submit">Save changes</button>
+              </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+

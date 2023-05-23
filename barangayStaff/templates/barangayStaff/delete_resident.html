@@ -1,11 +1,18 @@
-{% extends 'barangayStaff/base.html' %}
-{% load static %}
-{% block content %}
+<div class="modal fade" id="deleteResident{{ i.id }}" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="confirmDeleteModalLabel">{% block modal-title %}Confirm Delete{% endblock modal-title %}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">    
+        <p>Are you sure you want to delete resident <br>"{{ i.name }}"?</p>
 
-<p>Are you sure you want to delete resident "{{ resident }}"?</p>
-<form action="{% url 'delete_resident' resident.id %}" method="POST">
-    {% csrf_token %}
-    <a href="{% url 'resident' %}">Cancel</a>
-    <input type="submit" value="Confirm"> 
-</form>
-{% endblock %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <a href="/delete_resident/{{ i.id }}" class="btn btn-success">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+
+<!-- Modal -->
+<div class="modal fade" {% block modal-id %} id="addResident" {% endblock modal-id %} tabindex="-1" aria-labelledby="addResidentLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addResidentLabel">{% block modal-title %}Add Resident{% endblock modal-title %}</h1>
+      </div>
+      <form {% block action %} action="/add_resident" {% endblock action %} method="POST" autocomplete="on">
+        {% csrf_token %}
+        <div class="modal-body">
+          {% block Value-id %}{% endblock Value-id %} 
+              <div class="input-group mb-3">
+                <div class="custom-input-wrapper">
+                  <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                  <input type="test" class="form-control" name="name" maxlength="50" placeholder="Name" required {% block Value-name %}{% endblock Value-name %}>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="custom-input-wrapper">
+                  <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                  <input type="text" class="form-control" name="address" maxlength="50" placeholder="Address" required {% block Value-address %}{% endblock Value-address %}>
+              </div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="custom-input-wrapper">
+                  <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                  <input type="text" class="form-control" name="birth_date" placeholder="Birth Date (MM-DD-YYYY)" pattern="\d{4}-\d{2}-\d{2}" required {% block Value-birth_date %}{% endblock Value-birth_date %}>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="custom-input-wrapper">
+                  <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                  <input type="number" class="form-control" name="age" maxlength="50" placeholder="Age" required {% block Value-age %}{% endblock Value-age %}>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="custom-input-wrapper">
+                  <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                  <input type="number" class="form-control" name="phone_number" maxlength="50" placeholder="Phone Number" required {% block Value-phone_number %}{% endblock Value-phone_number %}>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                <div class="custom-select-wrapper">
+                  <select class="form-select" name="gender" id="id_gender" required>
+                    {% block gender_option %}
+                    <option value="" disabled selected hidden>Gender</option>
+                    {% endblock gender_option %}
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Undecided">Undecided</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                <div class="custom-select-wrapper">
+                  <select class="form-select" name="vaccination" id="id_vaccination" required>
+                    {% block vaccination_option %}
+                    <option value="" disabled selected hidden>Vaccination</option>
+                    {% endblock vaccination_option %}
+                    <option value="Vaccinated">Vaccinated</option>
+                    <option value="Not Vaccinated">Not Vaccinated</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                <div class="custom-select-wrapper">
+                  <select class="form-select" name="status" id="id_status" required>
+                    {% block status_option %}
+                    <option value=""disabled selected hidden>Status</option>
+                    {% endblock status_option %}
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success" value="submit">{% block btn-action %}Add Resident{% endblock btn-action %}</button>
+                <button type="submit" class="btn btn-success" name="save_and_add" value="save_and_add">Save and Add Another</button>
+              </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+

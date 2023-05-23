@@ -5,18 +5,38 @@
 <script defer src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
 <script defer src="{% static '/js/scripts.js' %}"></script>
 
-        <div class="d-flex" id="wrapper">
-            <!-- Sidebar-->
-            <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light">Barangay Staff</div>
-                <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'dashboard' %}">Dashboard</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'household' %}">Household</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'resident' %}">Resident</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Settings</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Logout</a>
-                </div>
-            </div>
-            <!-- Page content wrapper-->
-
+<style>
+    .list-group-item.active {
+      background-color: 40BF80 !important;
+      box-sizing: border-box;
+      border-radius: 10px;
+      margin: 5px 5px;
+      width: 230px;
+      padding: 0.75rem 1rem !important;
+    }
+    .list-group-item:hover {
+      background-color: #f8f9fa; !important;
+      box-sizing: border-box;
+      border-radius: 10px;
+      margin: 5px 5px;
+      width: 230px;
+      padding: 0.75rem 1rem !important;
+    }
+</style>
+    
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar-->
+      <div class="border-end bg-white" id="sidebar-wrapper">
+        <br>
+        <div class="sidebar-heading border-bottom bg-light">Barangay Staff</div>
+    
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {% if request.resolver_match.view_name == 'dashboard' %}active{% endif %}" href="{% url 'dashboard' %}">Dashboard</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {% if request.resolver_match.view_name == 'household' %}active{% endif %}" href="{% url 'household' %}">Household</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {% if request.resolver_match.view_name == 'resident' %}active{% endif %}" href="{% url 'resident' %}">Resident</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Settings</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Logout</a>
         </div>
+    </div>
+    
+    </div>
